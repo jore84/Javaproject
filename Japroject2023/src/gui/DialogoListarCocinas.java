@@ -71,7 +71,8 @@ public class DialogoListarCocinas extends JDialog implements ActionListener {
 	}
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == btnCerrar) {
-			actionPerformed(arg0);
+			
+			System.exit(0);
 		}
 	}
 	

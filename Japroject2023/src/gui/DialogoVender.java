@@ -10,8 +10,11 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoVender extends JDialog {
+public class DialogoVender extends JDialog implements ActionListener {
 
 	/**
 	 * 
@@ -20,6 +23,7 @@ public class DialogoVender extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtPrecio;
 	private JTextField txtCantidad;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -58,13 +62,14 @@ public class DialogoVender extends JDialog {
 		}
 		{
 			JLabel lblCantidad = new JLabel("Cantidad");
-			lblCantidad.setBounds(10, 66, 46, 14);
+			lblCantidad.setBounds(10, 66, 67, 14);
 			contentPanel.add(lblCantidad);
 		}
 		{
-			JComboBox<Object> comboBox = new JComboBox<Object>();
-			comboBox.setBounds(87, 8, 122, 20);
-			contentPanel.add(comboBox);
+			JComboBox<Object> cboModelo = new JComboBox<Object>();
+			cboModelo.setModel(new DefaultComboBoxModel<Object>(new String[] {"Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota"}));
+			cboModelo.setBounds(87, 8, 122, 20);
+			contentPanel.add(cboModelo);
 		}
 		{
 			txtPrecio = new JTextField();
@@ -84,7 +89,8 @@ public class DialogoVender extends JDialog {
 			contentPanel.add(btnVender);
 		}
 		{
-			JButton btnCerrar = new JButton("Cerrar");
+			btnCerrar = new JButton("Cerrar");
+			btnCerrar.addActionListener(this);
 			btnCerrar.setBounds(345, 32, 89, 23);
 			contentPanel.add(btnCerrar);
 		}
@@ -99,4 +105,12 @@ public class DialogoVender extends JDialog {
 		}
 	}
 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		System.exit(0);
+	}
 }

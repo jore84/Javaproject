@@ -9,14 +9,18 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
 
-public class DialogoGenerarReportes extends JDialog {
+public class DialogoGenerarReportes extends JDialog implements ActionListener {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
@@ -50,11 +54,13 @@ public class DialogoGenerarReportes extends JDialog {
 		}
 		{
 			JComboBox<Object> comboBox = new JComboBox<Object>();
+			comboBox.setModel(new DefaultComboBoxModel<Object>(new String[] {"Ventas por modelo", "Ventas en relaci\u00F3n a la venta \u00F3ptima", "Precios en relaci\u00F3n al precio promedio", "Promedios, menores y mayores"}));
 			comboBox.setBounds(97, 21, 206, 20);
 			contentPanel.add(comboBox);
 		}
 		{
-			JButton btnCerrar = new JButton("Cerrar");
+			btnCerrar = new JButton("Cerrar");
+			btnCerrar.addActionListener(this);
 			btnCerrar.setBounds(345, 20, 89, 23);
 			contentPanel.add(btnCerrar);
 		}
@@ -69,4 +75,12 @@ public class DialogoGenerarReportes extends JDialog {
 		}
 	}
 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		System.exit(0);
+	}
 }

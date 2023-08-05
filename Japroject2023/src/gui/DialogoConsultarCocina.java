@@ -8,8 +8,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoConsultarCocina extends JDialog {
+public class DialogoConsultarCocina extends JDialog implements ActionListener {
 
 	/**
 	 * 
@@ -22,7 +25,7 @@ public class DialogoConsultarCocina extends JDialog {
 	private JLabel lblAlto;
 	private JLabel lblFondo;
 	private JLabel lblQuemadores;
-	private JComboBox<Object> comboBox;
+	private JComboBox<Object> cboModelo;
 	private JTextField txtPrecio;
 	private JTextField txtAncho;
 	private JTextField txtAlto;
@@ -80,9 +83,10 @@ public class DialogoConsultarCocina extends JDialog {
 		lblQuemadores.setBounds(10, 154, 83, 14);
 		contentPanel.add(lblQuemadores);
 		
-		comboBox = new JComboBox<Object>();
-		comboBox.setBounds(103, 26, 135, 20);
-		contentPanel.add(comboBox);
+		cboModelo = new JComboBox<Object>();
+		cboModelo.setModel(new DefaultComboBoxModel<>(new String[] {"Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota"}));
+		cboModelo.setBounds(103, 26, 135, 20);
+		contentPanel.add(cboModelo);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setBounds(103, 51, 135, 20);
@@ -110,7 +114,16 @@ public class DialogoConsultarCocina extends JDialog {
 		contentPanel.add(txtQuemadores);
 		
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(309, 25, 89, 23);
 		contentPanel.add(btnCerrar);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		System.exit(0);
 	}
 }

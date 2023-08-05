@@ -8,8 +8,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoModificarCocina extends JDialog {
+public class DialogoModificarCocina extends JDialog implements ActionListener {
 
 	/**
 	 * 
@@ -22,13 +25,14 @@ public class DialogoModificarCocina extends JDialog {
 	private JLabel lblAlto;
 	private JLabel lblFondo;
 	private JLabel lblQuemadores;
-	private JComboBox<Object> comboBox;
+	private JComboBox<Object> cboModelo;
 	private JTextField txtPrecio;
 	private JTextField txtAncho;
 	private JTextField txtAlto;
 	private JTextField txtFondo;
 	private JTextField txtQuemadores;
 	private JButton btnCerrar;
+	private JButton btnGrabar;
 
 	/**
 	 * Launch the application.
@@ -80,9 +84,10 @@ public class DialogoModificarCocina extends JDialog {
 		lblQuemadores.setBounds(10, 154, 83, 14);
 		contentPanel.add(lblQuemadores);
 		
-		comboBox = new JComboBox<Object>();
-		comboBox.setBounds(103, 26, 135, 20);
-		contentPanel.add(comboBox);
+		cboModelo = new JComboBox<Object>();
+		cboModelo.setModel(new DefaultComboBoxModel<Object>(new String[] {"Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota"}));
+		cboModelo.setBounds(103, 26, 135, 20);
+		contentPanel.add(cboModelo);
 		
 		txtPrecio = new JTextField();
 		txtPrecio.setBounds(103, 51, 135, 20);
@@ -110,7 +115,26 @@ public class DialogoModificarCocina extends JDialog {
 		contentPanel.add(txtQuemadores);
 		
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(309, 25, 89, 23);
 		contentPanel.add(btnCerrar);
+		
+		btnGrabar = new JButton("Grabar");
+		btnGrabar.addActionListener(this);
+		btnGrabar.setBounds(309, 50, 89, 23);
+		contentPanel.add(btnGrabar);
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnGrabar) {
+			actionPerformedBtnGrabar(e);
+		}
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		System.exit(0);
+	}
+	protected void actionPerformedBtnGrabar(ActionEvent e) {
 	}
 }

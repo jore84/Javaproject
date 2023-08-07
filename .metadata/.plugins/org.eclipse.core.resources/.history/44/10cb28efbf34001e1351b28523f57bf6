@@ -169,12 +169,22 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener, I
 			break;
 		}
     }
- 
+    
+	public void itemStateChanged1(ItemEvent arg0) {
+		if (arg0.getSource() == cboModelo) {
+			itemStateChangedCboModelo(arg0);
+		}
+	}
+
 	protected void itemStateChangedCboModelo(ItemEvent arg0) {
 		solucion();
 	}
 
-	
+	int leerModelo() {
+		
+		return cboModelo.getSelectedIndex();
+	}
+
 	public void itemStateChanged(ItemEvent arg0) {
 		if (arg0.getSource() == cboModelo) {
 			itemStateChangedCboModelo(arg0);

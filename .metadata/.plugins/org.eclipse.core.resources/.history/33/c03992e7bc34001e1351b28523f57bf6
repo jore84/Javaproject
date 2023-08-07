@@ -86,7 +86,6 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener, I
 		contentPanel.add(lblQuemadores);
 
 		cboModelo = new JComboBox<String>();
-		cboModelo.addItemListener(this);
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota" }));
 		cboModelo.setBounds(103, 26, 135, 20);
@@ -146,14 +145,22 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener, I
 		this.dispose();
 
 	}
-    void solucion(){
-    	int modelo;
+
+	public void itemStateChanged1(ItemEvent arg0) {
+		if (arg0.getSource() == cboModelo) {
+			itemStateChangedCboModelo(arg0);
+		}
+	}
+
+	protected void itemStateChangedCboModelo(ItemEvent arg0) {
+		int modelo;
 
 		modelo = cboModelo.getSelectedIndex();
 
 		switch (modelo) {
 		case 0:
-		    consultarModelo(Tienda1.precio0, Tienda1.ancho0, Tienda1.alto0, Tienda1.fondo0, Tienda1.quemadores0);
+		
+			// consultarModelo(Tienda1.precio0, Tienda1.ancho0, Tienda1.alto0, Tienda1.fondo0, Tienda1.quemadores0);
 			break;
 		case 1:
 			consultarModelo(Tienda1.precio1, Tienda1.ancho1, Tienda1.alto1, Tienda1.fondo1, Tienda1.quemadores1);
@@ -168,17 +175,14 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener, I
 			consultarModelo(Tienda1.precio4, Tienda1.ancho4, Tienda1.alto4, Tienda1.fondo4, Tienda1.quemadores4);
 			break;
 		}
-    }
- 
-	protected void itemStateChangedCboModelo(ItemEvent arg0) {
-		solucion();
 	}
 
-	
+	int leerModelo() {
+		
+		return cboModelo.getSelectedIndex();
+	}
+
 	public void itemStateChanged(ItemEvent arg0) {
-		if (arg0.getSource() == cboModelo) {
-			itemStateChangedCboModelo(arg0);
-		}
 
 	}
 
@@ -189,5 +193,40 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener, I
 		txtFondo.setText(fondo + "");
 		txtQuemadores.setText(quemadores + "");
 	}
-	
+	// Datos mínimos de la primera cocina
+		public static String modelo0 = "Mabe EMP6120PG0";
+		public static double precio0 = 949.0;
+		
+		public static double fondo0 = 58.6;
+		public static double ancho0 = 60.0;
+		public static double alto0 = 91.0;
+		public static int quemadores0 = 4;
+		// Datos mínimos de la segunda cocina
+		public static String modelo1 = "Indurama Parma";
+		public static double precio1 = 1089.0;
+		public static double ancho1 = 80.0;
+		public static double alto1 = 94.0;
+		public static double fondo1 = 67.5;
+		public static int quemadores1 = 6;
+		// Datos mínimos de la tercera cocina
+		public static String modelo2 = "Sole COSOL027";
+		public static double precio2 = 850.0;
+		public static double ancho2 = 60.0;
+		public static double alto2 = 90.0;
+		public static double fondo2 = 50.0;
+		public static int quemadores2 = 4;
+		// Datos mínimos de la cuarta cocina
+		public static String modelo3 = "Coldex CX602";
+		public static double precio3 = 629.0;
+		public static double ancho3 = 61.6;
+		public static double alto3 = 95.0;
+		public static double fondo3 = 51.5;
+		public static int quemadores3 = 5;
+		// Datos mínimos de la quinta cocina
+		public static String modelo4 = "Reco Dakota";
+		public static double precio4 = 849.0;
+		public static double ancho4 = 75.4;
+		public static double alto4 = 94.5;
+		public static double fondo4 = 66.0;
+		public static int quemadores4 = 5;
 }

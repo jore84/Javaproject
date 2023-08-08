@@ -21,7 +21,7 @@ public class DialogoGenerarReportes extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void newScreen() {
 		try {
 			DialogoGenerarReportes dialog = new DialogoGenerarReportes();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);

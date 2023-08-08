@@ -88,6 +88,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		contentPanel.add(lblQuemadores);
 
 		cboModelo = new JComboBox<String>();
+		cboModelo.addItemListener(this); //Te faltaba esto
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota" }));
 		cboModelo.setBounds(103, 26, 135, 20);
@@ -134,6 +135,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		btnGrabar.setBounds(319, 50, 89, 23);
 		contentPanel.add(btnGrabar);
 		
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -142,14 +144,16 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		}
 		if (e.getSource() == btnGrabar) {
 			actionPerformedBtnGrabar(e);
+			
 		}
 		
 	}
 
 	protected void actionPerformedBtnGrabar(ActionEvent e) {
-			grabar();
+		grabar();
+		
 	}
-	void grabar(){
+	private void grabar(){
 		int modelo;
 
 		modelo = cboModelo.getSelectedIndex();
@@ -200,51 +204,49 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		this.dispose();
 	
 	}
+	
+		void lista(){
+			int modelo;
 
-	 
-	protected void itemStateChangedCboModelo(ItemEvent arg0) {
-		listar();
+			modelo = cboModelo.getSelectedIndex();
+
+			switch (modelo) {
+			case 0:
+				modificarModelo(Tienda1.precio0, Tienda1.ancho0, Tienda1.alto0, Tienda1.fondo0, Tienda1.quemadores0);
+				break;
+			case 1:
+				modificarModelo(Tienda1.precio1, Tienda1.ancho1, Tienda1.alto1, Tienda1.fondo1, Tienda1.quemadores1);
+				break;
+			case 2:
+				modificarModelo(Tienda1.precio2, Tienda1.ancho2, Tienda1.alto2, Tienda1.fondo2, Tienda1.quemadores2);
+				break;
+			case 3:
+				modificarModelo(Tienda1.precio3, Tienda1.ancho3, Tienda1.alto3, Tienda1.fondo3, Tienda1.quemadores3);
+				break;
+			default:
+				modificarModelo(Tienda1.precio4, Tienda1.ancho4, Tienda1.alto4, Tienda1.fondo4, Tienda1.quemadores4);
+				break;
 		}
-	void listar(){
-		int modelo;
-
-		modelo = cboModelo.getSelectedIndex();
-
-		switch (modelo) {
-		case 0:
-			consultarModelo(Tienda1.precio0, Tienda1.ancho0, Tienda1.alto0, Tienda1.fondo0, Tienda1.quemadores0);
-			break;
-		case 1:
-			consultarModelo(Tienda1.precio1, Tienda1.ancho1, Tienda1.alto1, Tienda1.fondo1, Tienda1.quemadores1);
-			break;
-		case 2:
-			consultarModelo(Tienda1.precio2, Tienda1.ancho2, Tienda1.alto2, Tienda1.fondo2, Tienda1.quemadores2);
-			break;
-		case 3:
-			consultarModelo(Tienda1.precio3, Tienda1.ancho3, Tienda1.alto3, Tienda1.fondo3, Tienda1.quemadores3);
-			break;
-		default:
-			consultarModelo(Tienda1.precio4, Tienda1.ancho4, Tienda1.alto4, Tienda1.fondo4, Tienda1.quemadores4);
-			break;
-	}
-	}
-	public void itemStateChanged(ItemEvent arg0) {
+		}
+		
+		public void itemStateChangedCboModelo(ItemEvent arg0) {
+			lista();
+		}
+	
+	
+	 public void itemStateChanged(ItemEvent arg0) {
 		if (arg0.getSource() == cboModelo) {
 			itemStateChangedCboModelo(arg0);
 		}
-
+		
 	}
-	
 
-	void consultarModelo(double precio, double ancho, double alto, double fondo, int quemadores) {
+	void modificarModelo(double precio, double ancho, double alto, double fondo, int quemadores) {
 		txtPrecio.setText(precio + "");
 		txtAncho.setText(ancho + "");
 		txtAlto.setText(alto + "");
 		txtFondo.setText(fondo + "");
 		txtQuemadores.setText(quemadores + "");
 	}
-
+}
 	
-	}
-
-

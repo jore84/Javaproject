@@ -10,8 +10,10 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoVender extends JDialog {
+public class DialogoVender extends JDialog implements ActionListener {
 
 	/**
 	 * 
@@ -20,11 +22,13 @@ public class DialogoVender extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtPrecio;
 	private JTextField txtCantidad;
+	private JButton btnVender;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void newScreen() {
 		try {
 			DialogoVender dialog = new DialogoVender();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -79,12 +83,14 @@ public class DialogoVender extends JDialog {
 			contentPanel.add(txtCantidad);
 		}
 		{
-			JButton btnVender = new JButton("Vender");
+			btnVender = new JButton("Vender");
+			btnVender.addActionListener(this);
 			btnVender.setBounds(345, 7, 89, 23);
 			contentPanel.add(btnVender);
 		}
 		{
-			JButton btnCerrar = new JButton("Cerrar");
+			btnCerrar = new JButton("Cerrar");
+			btnCerrar.addActionListener(this);
 			btnCerrar.setBounds(345, 32, 89, 23);
 			contentPanel.add(btnCerrar);
 		}
@@ -99,4 +105,13 @@ public class DialogoVender extends JDialog {
 		}
 	}
 
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnCerrar) {
+			actionPerformed(arg0);
+		}
+		if (arg0.getSource() == btnVender) {
+			actionPerformed(arg0);
+		}
+	}
+	
 }

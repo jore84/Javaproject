@@ -11,11 +11,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 public class Tienda1 extends JFrame implements ActionListener {
-	
+
 	// Datos mínimos de la primera cocina
 	public static String modelo0 = "Mabe EMP6120PG0";
 	public static double precio0 = 949.0;
-	
+
 	public static double fondo0 = 58.6;
 	public static double ancho0 = 60.0;
 	public static double alto0 = 91.0;
@@ -62,7 +62,6 @@ public class Tienda1 extends JFrame implements ActionListener {
 	// Cuota diaria
 	public static double cuotaDiaria = 75000;
 
-
 	/**
 	 * 
 	 */
@@ -84,6 +83,7 @@ public class Tienda1 extends JFrame implements ActionListener {
 	private JMenuItem mntmNewMenuItem_4;
 	private JMenu mnAyuda;
 	private JMenuItem mntmAcercaDeTienda;
+
 	/**
 	 * Launch the application.
 	 */
@@ -112,88 +112,129 @@ public class Tienda1 extends JFrame implements ActionListener {
 		setTitle("Tienda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 627, 418);
-		
+
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
+
 		mnArchivo = new JMenu("Archivo");
 		menuBar.add(mnArchivo);
-		
+
 		mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(this);
 		mnArchivo.add(mntmSalir);
-		
+
 		mnMantenimiento = new JMenu("Mantenimiento");
 		menuBar.add(mnMantenimiento);
-		
+
 		mntmNewMenuItem = new JMenuItem("Consultar Cocina");
 		mntmNewMenuItem.addActionListener(this);
 		mnMantenimiento.add(mntmNewMenuItem);
-		
+
 		mntmNewMenuItem_1 = new JMenuItem("Modificar Cocina");
 		mntmNewMenuItem_1.addActionListener(this);
 		mnMantenimiento.add(mntmNewMenuItem_1);
-		
+
 		mntmListarCocina = new JMenuItem("Listar Cocinas");
 		mntmListarCocina.addActionListener(this);
 		mnMantenimiento.add(mntmListarCocina);
-		
+
 		mnVentas = new JMenu("Ventas");
+		mnVentas.addActionListener(this);
 		menuBar.add(mnVentas);
-		
+
 		mntmVender = new JMenuItem("Vender");
+		mntmVender.addActionListener(this);
 		mnVentas.add(mntmVender);
-		
+
 		mntmGenerarReportes = new JMenuItem("Generar Reportes");
+		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
-		
+
 		mnConfiguracin = new JMenu("Configuraci\u00F3n");
+		mnConfiguracin.addActionListener(this);
 		menuBar.add(mnConfiguracin);
-		
+
 		mntmConfigurar = new JMenuItem("Configurar  Descuentos");
+		mntmConfigurar.addActionListener(this);
 		mnConfiguracin.add(mntmConfigurar);
-		
+
 		mntmNewMenuItem_3 = new JMenuItem("Configurar Obsequios");
 		mnConfiguracin.add(mntmNewMenuItem_3);
-		
+
 		mntmNewMenuItem_2 = new JMenuItem("Configurar cantidad \u00F3ptima");
 		mnConfiguracin.add(mntmNewMenuItem_2);
-		
+
 		mntmNewMenuItem_4 = new JMenuItem("Configurar cuota diaria");
 		mnConfiguracin.add(mntmNewMenuItem_4);
-		
+
 		mnAyuda = new JMenu("Ayuda");
 		menuBar.add(mnAyuda);
-		
+
 		mntmAcercaDeTienda = new JMenuItem("Acerca de tienda");
 		mnAyuda.add(mntmAcercaDeTienda);
 	}
+
 	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == mntmConfigurar) {
+			actionPerformedMntmConfigurar(arg0);
+		}
+		if (arg0.getSource() == mnConfiguracin) {
+			actionPerformedMnConfiguracin(arg0);
+		}
+		if (arg0.getSource() == mntmGenerarReportes) {
+			actionPerformedMntmGenerarReportes(arg0);
+		}
+		if (arg0.getSource() == mntmVender) {
+			actionPerformedMntmVender(arg0);
+		}
+		if (arg0.getSource() == mnVentas) {
+			actionPerformedMnVentas(arg0);
+		}
 		if (arg0.getSource() == mntmListarCocina) {
 			actionPerformedMntmListarCocina(arg0);
-		}
-		if (arg0.getSource() == mntmNewMenuItem_1) {
-			actionPerformedMntmNewMenuItem_1(arg0);
 		}
 		if (arg0.getSource() == mntmNewMenuItem) {
 			actionPerformedMntmNewMenuItem(arg0);
 		}
+		if (arg0.getSource() == mntmNewMenuItem_1) {
+			actionPerformedMntmNewMenuItem_1(arg0);
+		}
 		if (arg0.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(arg0);
 		}
-		
+
 	}
+
 	protected void actionPerformedMntmSalir(ActionEvent arg0) {
 		System.exit(0);
 	}
+
 	protected void actionPerformedMntmNewMenuItem(ActionEvent arg0) {
 		DialogoConsultarCocina.newScreen();
 	}
-	
+
 	protected void actionPerformedMntmNewMenuItem_1(ActionEvent arg0) {
 		DialogoModificarCocina.newScreen();
 	}
+
 	protected void actionPerformedMntmListarCocina(ActionEvent arg0) {
 		DialogoListarCocinas.newScreen();
+	}
+
+	protected void actionPerformedMnVentas(ActionEvent arg0) {
+		
+	}
+
+	protected void actionPerformedMntmVender(ActionEvent arg0) {
+		DialogoVender.newScreen();
+	}
+
+	protected void actionPerformedMntmGenerarReportes(ActionEvent arg0) {
+		DialogoGenerarReportes.newScreen();
+
+	}
+	protected void actionPerformedMnConfiguracin(ActionEvent arg0) {
+	}
+	protected void actionPerformedMntmConfigurar(ActionEvent arg0) {
 	}
 }

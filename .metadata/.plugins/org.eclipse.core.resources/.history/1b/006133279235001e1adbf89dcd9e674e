@@ -187,13 +187,16 @@ public class Tienda1 extends JFrame implements ActionListener {
 		System.exit(0);
 	}
 	protected void actionPerformedMntmNewMenuItem(ActionEvent arg0) {
-		DialogoConsultarCocina.newScreen();
+		DialogoConsultarCocina dialog = new DialogoConsultarCocina();
+		dialog.newScreen();
 	}
 	
 	protected void actionPerformedMntmNewMenuItem_1(ActionEvent arg0) {
-		DialogoModificarCocina.newScreen();
+		DialogoModificarCocina dialog = new DialogoModificarCocina();
+		dialog.newScreen();
 	}
 	protected void actionPerformedMntmListarCocina(ActionEvent arg0) {
-		DialogoListarCocinas.newScreen();
+		DialogoListarCocinas dialog = new DialogoListarCocinas();
+		dialog.newScreen();
 	}
 }

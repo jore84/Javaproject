@@ -127,12 +127,15 @@ public class Tienda1 extends JFrame implements ActionListener {
 		menuBar.add(mnMantenimiento);
 		
 		mntmNewMenuItem = new JMenuItem("Consultar Cocina");
+		mntmNewMenuItem.addActionListener(this);
 		mnMantenimiento.add(mntmNewMenuItem);
 		
 		mntmNewMenuItem_1 = new JMenuItem("Modificar Cocina");
+		mntmNewMenuItem_1.addActionListener(this);
 		mnMantenimiento.add(mntmNewMenuItem_1);
 		
 		mntmListarCocina = new JMenuItem("Listar Cocinas");
+		mntmListarCocina.addActionListener(this);
 		mnMantenimiento.add(mntmListarCocina);
 		
 		mnVentas = new JMenu("Ventas");
@@ -166,11 +169,34 @@ public class Tienda1 extends JFrame implements ActionListener {
 		mnAyuda.add(mntmAcercaDeTienda);
 	}
 	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == mntmListarCocina) {
+			actionPerformedMntmListarCocina(arg0);
+		}
+		if (arg0.getSource() == mntmNewMenuItem_1) {
+			actionPerformedMntmNewMenuItem_1(arg0);
+		}
+		if (arg0.getSource() == mntmNewMenuItem) {
+			actionPerformedMntmNewMenuItem(arg0);
+		}
 		if (arg0.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(arg0);
 		}
+		
 	}
 	protected void actionPerformedMntmSalir(ActionEvent arg0) {
 		System.exit(0);
+	}
+	protected void actionPerformedMntmNewMenuItem(ActionEvent arg0) {
+		DialogoConsultarCocina dialog = new DialogoConsultarCocina();
+		dialog.newScreen();
+	}
+	
+	protected void actionPerformedMntmNewMenuItem_1(ActionEvent arg0) {
+		DialogoModificarCocina dialog = new DialogoModificarCocina();
+		dialog.newScreen();
+	}
+	protected void actionPerformedMntmListarCocina(ActionEvent arg0) {
+		DialogoListarCocinas dialog = new DialogoListarCocinas();
+		dialog.newScreen();
 	}
 }

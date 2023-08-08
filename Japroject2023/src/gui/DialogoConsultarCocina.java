@@ -38,7 +38,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener, I
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void newScreen() {
 		try {
 			DialogoConsultarCocina dialog = new DialogoConsultarCocina();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -170,7 +170,7 @@ public class DialogoConsultarCocina extends JDialog implements ActionListener, I
 		}
     }
  
-	protected void itemStateChangedCboModelo(ItemEvent arg0) {
+	public void itemStateChangedCboModelo(ItemEvent arg0) {
 		solucion();
 	}
 

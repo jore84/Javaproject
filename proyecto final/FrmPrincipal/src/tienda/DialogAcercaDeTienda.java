@@ -82,55 +82,40 @@ public class DialogAcercaDeTienda extends JDialog implements ActionListener {
 		separator.setBounds(30, 40, 415, 2);
 		contentPanel.add(separator);
 		
-		lblAlumno0 = new JLabel("Fachin Custodio Anabel Marisol");
+		lblAlumno0 = new JLabel("ORE SANCHEZ JUAN JOSE");
 		lblAlumno0.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAlumno0.setBounds(50, 70, 380, 15);
 		contentPanel.add(lblAlumno0);
 		
-		lblCodigo0 = new JLabel("202331178");
-		lblCodigo0.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCodigo0.setBounds(175, 85, 130, 20);
-		contentPanel.add(lblCodigo0);
 		
-		lblAlumno1 = new JLabel("Gebhardt Venturo Sigmund Diego");
+		
+		lblAlumno1 = new JLabel("ZELADA MARIN ALEXANDER");
 		lblAlumno1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAlumno1.setBounds(50, 110, 380, 15);
 		contentPanel.add(lblAlumno1);
 		
-		lblCodigo1 = new JLabel("202330948");
-		lblCodigo1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCodigo1.setBounds(175, 125, 130, 20);
-		contentPanel.add(lblCodigo1);
 		
-		lblAlumno2 = new JLabel("Mendoza Sáenz Paul André");
+		
+		lblAlumno2 = new JLabel("OLIVERA APAZA ALDAIR JAYLOR");
 		lblAlumno2.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAlumno2.setBounds(50, 150, 380, 15);
 		contentPanel.add(lblAlumno2);
 		
-		lblCodigo2 = new JLabel("202330941");
-		lblCodigo2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCodigo2.setBounds(175, 165, 130, 20);
-		contentPanel.add(lblCodigo2);
+	
 		
-		lblAlumno3 = new JLabel("Ramírez Fuentes Juan José");
+		lblAlumno3 = new JLabel("IPANAQUE RODAS ENOC ISAAC");
 		lblAlumno3.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAlumno3.setBounds(50, 190, 380, 15);
 		contentPanel.add(lblAlumno3);
 		
-		lblCodigo3 = new JLabel("202332295");
-		lblCodigo3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCodigo3.setBounds(175, 205, 130, 20);
-		contentPanel.add(lblCodigo3);
 		
-		lblAlumno4 = new JLabel("Rincón González Rafael Angel");
+		
+		lblAlumno4 = new JLabel("CAMERO CONDORI JORGE GUILLERMO");
 		lblAlumno4.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAlumno4.setBounds(50, 230, 380, 15);
 		contentPanel.add(lblAlumno4);
 		
-		lblCodigo4 = new JLabel("202330794");
-		lblCodigo4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCodigo4.setBounds(175, 245, 130, 20);
-		contentPanel.add(lblCodigo4);
+		
 				
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(this);

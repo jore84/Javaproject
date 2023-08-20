@@ -170,28 +170,24 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		String fondotexto = leerFondotexto();
 		String quemadorestexto = leerQuemadorestexto();
 		
-		
-			
-		
-		
 		if (preciotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El precio es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El precio es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (anchotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El ancho es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El ancho es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (altotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El alto es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El alto es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (fondotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El fondo es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El fondo es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (quemadorestexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El quemadores es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El quemadores es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		
@@ -203,26 +199,6 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 			double Alto = leerAlto();
 			double Fondo = leerFondo();
 			int Quemadores = leerQuemadores();
-			if (Precio <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", preciotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Ancho <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", anchotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Alto <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", altotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Fondo <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", fondotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Quemadores <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", quemadorestexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
 			
 			switch (modelo) {
 			case 0:
@@ -233,31 +209,31 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 				Tienda1.quemadores0 =Quemadores;
 				break;
 			case 1:
-				Tienda1.precio1 =Precio;
-				Tienda1.ancho1 =Ancho;
-				Tienda1.alto1 =Alto;
-				Tienda1.fondo1 =Fondo;
-				Tienda1.quemadores1 =Quemadores;
+				Tienda1.precio1 =leerPrecio();
+				Tienda1.ancho1 =leerAncho();
+				Tienda1.alto1 =leerAlto();
+				Tienda1.fondo1 =leerFondo();
+				Tienda1.quemadores1 =leerQuemadores();
 			case 2:
-				Tienda1.precio2 =Precio;
-				Tienda1.ancho2 =Ancho;
-				Tienda1.alto2 =Alto;
-				Tienda1.fondo2 =Fondo;
-				Tienda1.quemadores2 =Quemadores;
+				Tienda1.precio2 =leerPrecio();
+				Tienda1.ancho2 =leerAncho();
+				Tienda1.alto2 =leerAlto();
+				Tienda1.fondo2 =leerFondo();
+				Tienda1.quemadores2 =leerQuemadores();
 				break;
 			case 3:
-				Tienda1.precio3 =Precio;
-				Tienda1.ancho3 =Ancho;
-				Tienda1.alto3 =Alto;
-				Tienda1.fondo3 =Fondo;
-				Tienda1.quemadores3 =Quemadores;
+				Tienda1.precio3 =leerPrecio();
+				Tienda1.ancho3 =leerAncho();
+				Tienda1.alto3 =leerAlto();
+				Tienda1.fondo3 =leerFondo();
+				Tienda1.quemadores3 =leerQuemadores();
 				break;
 			default:
-				Tienda1.precio4 =Precio;
-				Tienda1.ancho4 =Ancho;
-				Tienda1.alto4=Alto;
-				Tienda1.fondo4 =Fondo;
-				Tienda1.quemadores4 =Quemadores;
+				Tienda1.precio4 =leerPrecio();
+				Tienda1.ancho4 =leerAncho();
+				Tienda1.alto4=leerAlto();
+				Tienda1.fondo4 =leerFondo();
+				Tienda1.quemadores4 =leerQuemadores();
 				break;
 			}
 			

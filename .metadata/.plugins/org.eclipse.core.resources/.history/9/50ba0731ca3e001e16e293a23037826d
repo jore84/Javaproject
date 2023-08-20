@@ -88,7 +88,6 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		contentPanel.add(lblQuemadores);
 
 		cboModelo = new JComboBox<String>();
-		cboModelo.addActionListener(this);
 		cboModelo.addItemListener(this); //Te faltaba esto
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota" }));
@@ -140,9 +139,6 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == cboModelo) {
-			actionPerformedCboModelo(e);
-		}
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
 		}
@@ -154,148 +150,67 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 	}
 
 	protected void actionPerformedBtnGrabar(ActionEvent e) {
-		
 		grabar();
 		
 	}
-	
-	
 	private void grabar(){
-	
-		int modelo = Leermodelo();
-		
-		String preciotexto = leerPreciotexto();
-		String anchotexto = leerAnchotexto();
-		String altotexto = leerAltotexto();
-		String fondotexto = leerFondotexto();
-		String quemadorestexto = leerQuemadorestexto();
-		
-		
-			
-		
-		
-		if (preciotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El precio es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
-		    return;
-		}
-		if (anchotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El ancho es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
-		    return;
-		}
-		if (altotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El alto es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
-		    return;
-		}
-		if (fondotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El fondo es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
-		    return;
-		}
-		if (quemadorestexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El quemadores es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
-		    return;
-		}
-		
-	
-		
 		try {
-			double Precio = leerPrecio();
-			double Ancho = leerAncho();
-			double Alto = leerAlto();
-			double Fondo = leerFondo();
-			int Quemadores = leerQuemadores();
-			if (Precio <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", preciotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Ancho <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", anchotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Alto <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", altotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Fondo <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", fondotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Quemadores <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", quemadorestexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
+		int modelo = Leermodelo();
+		If(precio.isEmpty()){
 			
-			switch (modelo) {
-			case 0:
-				Tienda1.precio0 = Precio;
-				Tienda1.ancho0 =Ancho;
-				Tienda1.alto0 =Alto;
-				Tienda1.fondo0 =Fondo;
-				Tienda1.quemadores0 =Quemadores;
-				break;
-			case 1:
-				Tienda1.precio1 =Precio;
-				Tienda1.ancho1 =Ancho;
-				Tienda1.alto1 =Alto;
-				Tienda1.fondo1 =Fondo;
-				Tienda1.quemadores1 =Quemadores;
-			case 2:
-				Tienda1.precio2 =Precio;
-				Tienda1.ancho2 =Ancho;
-				Tienda1.alto2 =Alto;
-				Tienda1.fondo2 =Fondo;
-				Tienda1.quemadores2 =Quemadores;
-				break;
-			case 3:
-				Tienda1.precio3 =Precio;
-				Tienda1.ancho3 =Ancho;
-				Tienda1.alto3 =Alto;
-				Tienda1.fondo3 =Fondo;
-				Tienda1.quemadores3 =Quemadores;
-				break;
-			default:
-				Tienda1.precio4 =Precio;
-				Tienda1.ancho4 =Ancho;
-				Tienda1.alto4=Alto;
-				Tienda1.fondo4 =Fondo;
-				Tienda1.quemadores4 =Quemadores;
-				break;
-			}
-			
-			this.dispose();
-			JOptionPane.showMessageDialog(this, "Datos modificados", null, JOptionPane.INFORMATION_MESSAGE);
-		
-			
-	
-		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, "El precio es un numero","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);
-			JOptionPane.showMessageDialog(this, "El Ancho es un numero","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);
-			JOptionPane.showMessageDialog(this, "El Alto es un numero","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);
-			JOptionPane.showMessageDialog(this, "El Fondo es un numero","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);
 		}
-	  
+  
+	  switch (modelo) {
+		case 0:
+			Tienda1.precio0 = Double.parseDouble(txtPrecio.getText());
+			Tienda1.ancho0 = Double.parseDouble(txtAncho.getText());
+			Tienda1.alto0 = Double.parseDouble(txtAlto.getText());
+			Tienda1.fondo0 = Double.parseDouble(txtFondo.getText());
+			Tienda1.quemadores0 = Integer.parseInt(txtQuemadores.getText());
+			break;
+		case 1:
+			Tienda1.precio1 = Double.parseDouble(txtPrecio.getText());
+			Tienda1.ancho1 = Double.parseDouble(txtAncho.getText());
+			Tienda1.alto1 = Double.parseDouble(txtAlto.getText());
+			Tienda1.fondo1 = Double.parseDouble(txtFondo.getText());
+			Tienda1.quemadores1 = Integer.parseInt(txtQuemadores.getText());
+		case 2:
+			Tienda1.precio2 = Double.parseDouble(txtPrecio.getText());
+			Tienda1.ancho2= Double.parseDouble(txtAncho.getText());
+			Tienda1.alto2 = Double.parseDouble(txtAlto.getText());
+			Tienda1.fondo2 = Double.parseDouble(txtFondo.getText());
+			Tienda1.quemadores2 = Integer.parseInt(txtQuemadores.getText());
+			break;
+		case 3:
+			Tienda1.precio3 = Double.parseDouble(txtPrecio.getText());
+			Tienda1.ancho3 = Double.parseDouble(txtAncho.getText());
+			Tienda1.alto3 = Double.parseDouble(txtAlto.getText());
+			Tienda1.fondo3 = Double.parseDouble(txtFondo.getText());
+			Tienda1.quemadores3 = Integer.parseInt(txtQuemadores.getText());
+			break;
+		default:
+			Tienda1.precio4 = Double.parseDouble(txtPrecio.getText());
+			Tienda1.ancho4 = Double.parseDouble(txtAncho.getText());
+			Tienda1.alto4 = Double.parseDouble(txtAlto.getText());
+			Tienda1.fondo4 = Double.parseDouble(txtFondo.getText());
+			Tienda1.quemadores4 = Integer.parseInt(txtQuemadores.getText());
+			break;
+		}
 		
-	}	
+		this.dispose();
+		JOptionPane.showMessageDialog(this, "Datos modificados", null, JOptionPane.INFORMATION_MESSAGE);
 	
-	int Leermodelo(){
-		return cboModelo.getSelectedIndex();
-	}
 	
-	String leerPreciotexto(){
-		return txtPrecio.getText();
+} catch (Exception e) {
+	JOptionPane.showMessageDialog(this, "Datos requeridos");
+}
+		
+		
 	}
-	String leerAnchotexto(){
-		return txtAncho.getText();
+	void Leermodelo(){
+		cboModelo.getSelectedIndex();
 	}
-	String leerAltotexto(){
-		return txtAlto.getText();
-	}
-	String leerFondotexto(){
-		return txtFondo.getText();
-	}
-	String leerQuemadorestexto(){
-		return txtQuemadores.getText();
-	}
-	
+
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		this.dispose();
 	
@@ -336,31 +251,13 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		}
 		
 	}
-	double leerPrecio(){
-		return Double.parseDouble(txtPrecio.getText());
-	}
-	double leerAncho(){
-		return Double.parseDouble(txtAncho.getText());
-	}
-	double leerAlto(){
-		return Double.parseDouble(txtAlto.getText());
-	}
-	double leerFondo(){
-		return Double.parseDouble(txtFondo.getText());
-	}
-	int leerQuemadores(){
-		return Integer.parseInt(txtQuemadores.getText());
-	}
 
-	 private void modificarModelo(double precio, double ancho, double alto, double fondo, int quemadores) {
+	private void modificarModelo(double precio, double ancho, double alto, double fondo, int quemadores) {
 		txtPrecio.setText(precio + "");
 		txtAncho.setText(ancho + "");
 		txtAlto.setText(alto + "");
 		txtFondo.setText(fondo + "");
 		txtQuemadores.setText(quemadores + "");
-	}
-	protected void actionPerformedCboModelo(ActionEvent e) {
-		lista();
 	}
 }
 	

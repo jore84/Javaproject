@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -89,24 +88,40 @@ public class DialogoListarCocinas extends JDialog implements ActionListener {
 
 	protected void actionPerformedBtnListar(ActionEvent arg0) {
 		txtS.setText("LISTADO DE COCINAS\n\n");
-		mostrarDatos(Tienda1.modelo0, Tienda1.precio0, Tienda1.ancho0, Tienda1.alto0,Tienda1.fondo0, Tienda1.quemadores0);
-		mostrarDatos(Tienda1.modelo1, Tienda1.precio1, Tienda1.ancho1, Tienda1.alto1,Tienda1.fondo1, Tienda1.quemadores1);
-		mostrarDatos(Tienda1.modelo2, Tienda1.precio2, Tienda1.ancho2, Tienda1.alto2,Tienda1.fondo2, Tienda1.quemadores2);
-		mostrarDatos(Tienda1.modelo3, Tienda1.precio3, Tienda1.ancho3, Tienda1.alto3,Tienda1.fondo3, Tienda1.quemadores3);
-		mostrarDatos(Tienda1.modelo4, Tienda1.precio4, Tienda1.ancho4, Tienda1.alto4,Tienda1.fondo4, Tienda1.quemadores4);
+		txtS.append("Modelo\t\t:" + Tienda1.modelo0 + "\n");
+		txtS.append("Precio\t\t:S/" + Tienda1.precio0 + "\n");
+		txtS.append("Profundidad\t:" + Tienda1.fondo0 + "\n");
+		txtS.append("Ancho\t\t:" + Tienda1.ancho0 + "\n");
+		txtS.append("Altura\t\t:" + Tienda1.alto0 + "\n");
+		txtS.append("Quemadores\t:" + Tienda1.quemadores0 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Tienda1.modelo1 + "\n");
+		txtS.append("Precio\t\t:/S" + Tienda1.precio1 + "\n");
+		txtS.append("Profundidad\t:" + Tienda1.fondo1 + "\n");
+		txtS.append("Ancho\t\t:" + Tienda1.ancho1 + "\n");
+		txtS.append("Altura\t\t:" + Tienda1.alto1 + "\n");
+		txtS.append("Quemadores\t:" + Tienda1.quemadores1 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Tienda1.modelo2 + "\n");
+		txtS.append("Precio\t\t:/S" + Tienda1.precio2 + "\n");
+		txtS.append("Profundidad\t:" + Tienda1.fondo2 + "\n");
+		txtS.append("Ancho\t\t:" + Tienda1.ancho2 + "\n");
+		txtS.append("Altura\t\t:" + Tienda1.alto2 + "\n");
+		txtS.append("Quemadores\t:" + Tienda1.quemadores2 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Tienda1.modelo3 + "\n");
+		txtS.append("Precio\t\t:/S" + Tienda1.precio3 + "\n");
+		txtS.append("Profundidad\t:" + Tienda1.fondo3 + "\n");
+		txtS.append("Ancho\t\t:" + Tienda1.ancho3 + "\n");
+		txtS.append("Altura\t\t:" + Tienda1.alto3 + "\n");
+		txtS.append("Quemadores\t:" + Tienda1.quemadores3 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Tienda1.modelo4 + "\n");
+		txtS.append("Precio\t\t:S/" + Tienda1.precio4 + "\n");
+		txtS.append("Profundidad\t:" + Tienda1.fondo4 + "\n");
+		txtS.append("Ancho\t\t:" + Tienda1.ancho4 + "\n");
+		txtS.append("Altura\t\t:" + Tienda1.alto4 + "\n");
+		txtS.append("Quemadores\t:" + Tienda1.quemadores4 + "\n");
 	}
-	private void imprimir(String cadena){
-		txtS.append("n"+ cadena);
-		
-	}
-		
-	
-	 private void mostrarDatos(String modelo ,double precio, double ancho, double alto, double fondo, int quemadores) {
-		imprimir("\n Modelo\t\t:" + modelo);
-		imprimir("Precio\t\t:" + modelo);
-		imprimir("Profundidad\t\t:" + modelo);
-		imprimir("Ancho\t\t:" + modelo);
-		imprimir("Quemadores\t\t:" + modelo);
-		
-	}
+
 }

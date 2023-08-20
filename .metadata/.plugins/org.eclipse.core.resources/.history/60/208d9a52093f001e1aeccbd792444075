@@ -175,23 +175,23 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		
 		
 		if (preciotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El precio es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El precio es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (anchotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El ancho es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El ancho es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (altotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El alto es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El alto es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (fondotexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El fondo es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El fondo es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		if (quemadorestexto.isEmpty()) {
-			JOptionPane.showMessageDialog(this, "El quemadores es requedido","ADVERTENCIA",JOptionPane.WARNING_MESSAGE);	
+			JOptionPane.showMessageDialog(this, "El quemadores es requedido","ADVERTENCIO",JOptionPane.WARNING_MESSAGE);	
 		    return;
 		}
 		
@@ -204,23 +204,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 			double Fondo = leerFondo();
 			int Quemadores = leerQuemadores();
 			if (Precio <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", preciotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Ancho <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", anchotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Alto <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", altotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Fondo <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", fondotexto, JOptionPane.WARNING_MESSAGE );
-				return ;
-			}
-			if (Quemadores <= 0) {
-				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0", quemadorestexto, JOptionPane.WARNING_MESSAGE );
+				JOptionPane.showMessageDialog(this, "La cantidada debe ser mayor a 0",preciotexto, JOptionPane.WARNING_MESSAGE);
 				return ;
 			}
 			

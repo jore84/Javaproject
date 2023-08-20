@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="gui.DialogoListarCocinas"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>

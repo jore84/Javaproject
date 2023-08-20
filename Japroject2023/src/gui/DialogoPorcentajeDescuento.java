@@ -131,6 +131,6 @@ public class DialogoPorcentajeDescuento extends JDialog implements ActionListene
 		}
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
-		System.exit(0);
+		dispose();
 	}
 }

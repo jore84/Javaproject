@@ -54,6 +54,56 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 			}
 		});
 	}
+	
+	// Datos mínimos de la primera cocina
+		public static String modelo0 = "Mabe EMP6120PG0";
+		public static double precio0 = 949.0;
+
+		public static double fondo0 = 58.6;
+		public static double ancho0 = 60.0;
+		public static double alto0 = 91.0;
+		public static int quemadores0 = 4;
+		// Datos mínimos de la segunda cocina
+		public static String modelo1 = "Indurama Parma";
+		public static double precio1 = 1089.0;
+		public static double ancho1 = 80.0;
+		public static double alto1 = 94.0;
+		public static double fondo1 = 67.5;
+		public static int quemadores1 = 6;
+		// Datos mínimos de la tercera cocina
+		public static String modelo2 = "Sole COSOL027";
+		public static double precio2 = 850.0;
+		public static double ancho2 = 60.0;
+		public static double alto2 = 90.0;
+		public static double fondo2 = 50.0;
+		public static int quemadores2 = 4;
+		// Datos mínimos de la cuarta cocina
+		public static String modelo3 = "Coldex CX602";
+		public static double precio3 = 629.0;
+		public static double ancho3 = 61.6;
+		public static double alto3 = 95.0;
+		public static double fondo3 = 51.5;
+		public static int quemadores3 = 5;
+		// Datos mínimos de la quinta cocina
+		public static String modelo4 = "Reco Dakota";
+		public static double precio4 = 849.0;
+		public static double ancho4 = 75.4;
+		public static double alto4 = 94.5;
+		public static double fondo4 = 66.0;
+		public static int quemadores4 = 5;
+		// Porcentajes de descuento
+		public static double porcentaje1 = 7.5;
+		public static double porcentaje2 = 10.0;
+		public static double porcentaje3 = 12.5;
+		public static double porcentaje4 = 15.0;
+		// Obsequios
+		public static String obsequio1 = "Cafetera";
+		public static String obsequio2 = "Licuadora";
+		public static String obsequio3 = "Extractor";
+		// Cantidad óptima de unidades vendidas
+		public static int cantidadOptima = 30;
+		// Cuota diaria
+		public static double cuotaDiaria = 75000;
 
 	/**
 	 * Create the frame.
@@ -127,16 +177,17 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 		mntmAcercadetienda.addActionListener(this);
 		mnAyuda.add(mntmAcercadetienda);
 	}
+	
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == mntmAcercadetienda) {
 			actionPerformedMntmAcercadetienda(arg0);
 		}
-		
-		
+		if (arg0.getSource() == mntmConfigurarCantidadOptima) {
+			actionPerformedMntmConfigurarCantidadOptima(arg0);
+		}
 		if (arg0.getSource() == mntmConfigurarCuotaDiaria) {
 			actionPerformedMntmConfigurarCuotaDiaria(arg0);
 		}
-		
 		if (arg0.getSource() == mntmConfigurarObsequios) {
 			actionPerformedMntmConfigurarObsequios(arg0);
 		}
@@ -157,7 +208,6 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 		}
 		if (arg0.getSource() == mntmConsultarCocina) {
 			actionPerformedMntmConsultarCocina(arg0);
-			
 		}
 		if (arg0.getSource() == mnArchivo) {
 			actionPerformed(arg0);
@@ -165,16 +215,11 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 		if (arg0.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(arg0);
 		}
-	
-		
 	}
-	
-		
 	
 	protected void actionPerformedMntmSalir(ActionEvent arg0) {
-		System.exit(0);
+		dispose();
 	}
-	
 	
 	protected void actionPerformedMntmConsultarCocina(ActionEvent arg0) {
 		DialogoConsultarCocina dc;
@@ -189,30 +234,35 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 		dc.setLocationRelativeTo(this);
 		dc.setVisible(true);
 	}
+	
 	protected void actionPerformedMntmListarCocina(ActionEvent arg0) {
 		DialogoListarCocinas dc;
 		dc = new DialogoListarCocinas();
 		dc.setLocationRelativeTo(this);
 		dc.setVisible(true);
 	}
+	
 	protected void actionPerformedMntmVender(ActionEvent arg0) {
 		DialogoVender dc;
 		dc = new DialogoVender();
 		dc.setLocationRelativeTo(this);
 		dc.setVisible(true);
 	}
+	
 	protected void actionPerformedMntmGenerarReportes(ActionEvent arg0) {
 		DialogoGenerarReportes dc;
 		dc = new DialogoGenerarReportes();
 		dc.setLocationRelativeTo(this);
 		dc.setVisible(true);
 	}
+	
 	protected void actionPerformedMntmConfigurarDescuentos(ActionEvent arg0) {
 		DialogoPorcentajeDescuento dc;
 		dc = new DialogoPorcentajeDescuento();
 		dc.setLocationRelativeTo(this);
 		dc.setVisible(true);
 	}
+	
 	protected void actionPerformedMntmConfigurarObsequios(ActionEvent arg0) {
 		DialogoConfigurarObsequios dc;
 		dc = new DialogoConfigurarObsequios();
@@ -220,13 +270,20 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 		dc.setVisible(true);
 	}
 	
-	
 	protected void actionPerformedMntmConfigurarCuotaDiaria(ActionEvent arg0) {
 		DialogoConfigurarCuotaDiaria dc;
 		dc = new DialogoConfigurarCuotaDiaria();
 		dc.setLocationRelativeTo(this);
 		dc.setVisible(true);
 	}
+	
+	protected void actionPerformedMntmConfigurarCantidadOptima(ActionEvent arg0) {
+		DialogoConfiguracionCantidadOptima dc;
+		dc = new DialogoConfiguracionCantidadOptima();
+		dc.setLocationRelativeTo(this);
+		dc.setVisible(true);
+	}
+	
 	protected void actionPerformedMntmAcercadetienda(ActionEvent arg0) {
 		DialogoAcercadeTienda dc;
 		dc = new DialogoAcercadeTienda();

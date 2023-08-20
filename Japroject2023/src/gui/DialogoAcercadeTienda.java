@@ -73,27 +73,27 @@ public class DialogoAcercadeTienda extends JDialog implements ActionListener {
 		
 		lblNewLabel_2 = new JLabel("Ore Sanchez Juan Jose");
 		lblNewLabel_2.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(143, 77, 213, 14);
+		lblNewLabel_2.setBounds(119, 77, 213, 14);
 		contentPanel.add(lblNewLabel_2);
 		
 		lblZeladaMarinAlexander = new JLabel("Zelada Marin Alexander ");
 		lblZeladaMarinAlexander.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		lblZeladaMarinAlexander.setBounds(143, 102, 181, 14);
+		lblZeladaMarinAlexander.setBounds(119, 100, 213, 14);
 		contentPanel.add(lblZeladaMarinAlexander);
 		
 		lblOliveraApazaAldair = new JLabel("Olivera Apaza Aldair");
 		lblOliveraApazaAldair.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		lblOliveraApazaAldair.setBounds(143, 127, 181, 14);
+		lblOliveraApazaAldair.setBounds(119, 123, 213, 14);
 		contentPanel.add(lblOliveraApazaAldair);
 		
 		lblCameroCondoriJorge = new JLabel("Camero Condori Jorge Guillermo");
 		lblCameroCondoriJorge.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		lblCameroCondoriJorge.setBounds(143, 147, 233, 14);
+		lblCameroCondoriJorge.setBounds(119, 146, 213, 14);
 		contentPanel.add(lblCameroCondoriJorge);
 		
 		lblIpanaqueRodasEnoc = new JLabel("Ipanaque Rodas Enoc Isaac");
 		lblIpanaqueRodasEnoc.setFont(new Font("Comic Sans MS", Font.PLAIN, 14));
-		lblIpanaqueRodasEnoc.setBounds(143, 172, 233, 14);
+		lblIpanaqueRodasEnoc.setBounds(119, 169, 213, 14);
 		contentPanel.add(lblIpanaqueRodasEnoc);
 		
 		btnCerrar = new JButton("Cerrar");
@@ -107,6 +107,6 @@ public class DialogoAcercadeTienda extends JDialog implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
-		System.exit(0);
+		dispose();
 	}
 }

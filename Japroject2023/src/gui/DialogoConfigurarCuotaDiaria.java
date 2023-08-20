@@ -75,6 +75,6 @@ public class DialogoConfigurarCuotaDiaria extends JDialog implements ActionListe
 		}
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
-		System.exit(0);
+		dispose();
 	}
 }

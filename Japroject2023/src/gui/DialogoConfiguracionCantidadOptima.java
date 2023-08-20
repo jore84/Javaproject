@@ -7,8 +7,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class DialogoConfiguracionCantidadOptima extends JDialog {
+public class DialogoConfiguracionCantidadOptima extends JDialog implements ActionListener {
 
 	/**
 	 * 
@@ -16,6 +18,7 @@ public class DialogoConfiguracionCantidadOptima extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtCantidad;
+	private JButton btnCancelar;
 
 	/**
 	 * Launch the application.
@@ -59,10 +62,19 @@ public class DialogoConfiguracionCantidadOptima extends JDialog {
 			contentPanel.add(btnAceptar);
 		}
 		{
-			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar = new JButton("Cancelar");
+			btnCancelar.addActionListener(this);
 			btnCancelar.setBounds(345, 32, 89, 23);
 			contentPanel.add(btnCancelar);
 		}
 	}
 
+	public void actionPerformed(ActionEvent arg0) {
+		if (arg0.getSource() == btnCancelar) {
+			actionPerformedBtnCancelar(arg0);
+		}
+	}
+	protected void actionPerformedBtnCancelar(ActionEvent arg0) {
+		dispose();
+	}
 }

@@ -59,6 +59,7 @@ public class DialogoListarCocinas extends JDialog implements ActionListener {
 		contentPanel.add(btnCerrar);
 		
 		btnListar = new JButton("Listar");
+		btnListar.addActionListener(this);
 		btnListar.setBounds(258, 288, 89, 23);
 		contentPanel.add(btnListar);
 		
@@ -69,11 +70,56 @@ public class DialogoListarCocinas extends JDialog implements ActionListener {
 		txtS = new JTextArea();
 		scrollPane_1.setViewportView(txtS);
 	}
+	
+	void cerrar() {
+		this.dispose();
+	}
+	
 	public void actionPerformed(ActionEvent arg0) {
 		if (arg0.getSource() == btnCerrar) {
-			
-			System.exit(0);
+			cerrar();
 		}
+		if (arg0.getSource() == btnListar) {
+			actionPerformedBtnListar(arg0);
+		}
+	}
+	
+	protected void actionPerformedBtnListar(ActionEvent arg0) {
+		txtS.setText("LISTADO DE COCINAS\n\n");
+		txtS.append("Modelo\t\t:" + Javaproject20223.modelo0 + "\n");
+		txtS.append("Precio\t\t:S/" + Javaproject20223.precio0 + "\n");
+		txtS.append("Profundidad\t:" + Javaproject20223.fondo0 + "\n");
+		txtS.append("Ancho\t\t:" + Javaproject20223.ancho0 + "\n");
+		txtS.append("Altura\t\t:" + Javaproject20223.alto0 + "\n");
+		txtS.append("Quemadores\t:" + Javaproject20223.quemadores0 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Javaproject20223.modelo1 + "\n");
+		txtS.append("Precio\t\t:/S" + Javaproject20223.precio1 + "\n");
+		txtS.append("Profundidad\t:" + Javaproject20223.fondo1 + "\n");
+		txtS.append("Ancho\t\t:" + Javaproject20223.ancho1 + "\n");
+		txtS.append("Altura\t\t:" + Javaproject20223.alto1 + "\n");
+		txtS.append("Quemadores\t:" + Javaproject20223.quemadores1 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Javaproject20223.modelo2 + "\n");
+		txtS.append("Precio\t\t:/S" + Javaproject20223.precio2 + "\n");
+		txtS.append("Profundidad\t:" + Javaproject20223.fondo2 + "\n");
+		txtS.append("Ancho\t\t:" + Javaproject20223.ancho2 + "\n");
+		txtS.append("Altura\t\t:" + Javaproject20223.alto2 + "\n");
+		txtS.append("Quemadores\t:" + Javaproject20223.quemadores2 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Javaproject20223.modelo3 + "\n");
+		txtS.append("Precio\t\t:/S" + Javaproject20223.precio3 + "\n");
+		txtS.append("Profundidad\t:" + Javaproject20223.fondo3 + "\n");
+		txtS.append("Ancho\t\t:" + Javaproject20223.ancho3 + "\n");
+		txtS.append("Altura\t\t:" + Javaproject20223.alto3 + "\n");
+		txtS.append("Quemadores\t:" + Javaproject20223.quemadores3 + "\n\n");
+
+		txtS.append("Modelo\t\t:" + Javaproject20223.modelo4 + "\n");
+		txtS.append("Precio\t\t:S/" + Javaproject20223.precio4 + "\n");
+		txtS.append("Profundidad\t:" + Javaproject20223.fondo4 + "\n");
+		txtS.append("Ancho\t\t:" + Javaproject20223.ancho4 + "\n");
+		txtS.append("Altura\t\t:" + Javaproject20223.alto4 + "\n");
+		txtS.append("Quemadores\t:" + Javaproject20223.quemadores4 + "\n");
 	}
 	
 	

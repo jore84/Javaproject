@@ -111,6 +111,6 @@ public class DialogoVender extends JDialog implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
-		System.exit(0);
+		dispose();
 	}
 }

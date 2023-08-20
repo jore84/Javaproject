@@ -88,6 +88,7 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		contentPanel.add(lblQuemadores);
 		
 		cboModelo = new JComboBox<String>();
+		cboModelo.addActionListener(this);
 		cboModelo.addItemListener(this);
 		cboModelo.setModel(new DefaultComboBoxModel<String>(
 				new String[] { "Mabe EMP6120PG0", "Indurama Parma", "Sole COSOL027", "Coldex CX602", "Reco Dakota" }));
@@ -143,6 +144,9 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 		if (e.getSource() == btnCerrar) {
 			actionPerformedBtnCerrar(e);
 		}
+		if (e.getSource() == cboModelo) {
+			actionPerformedCboModelo(e);
+		}
 	}
 	
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
@@ -154,52 +158,133 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 	}
 	
 	private void grabar(){
-		int modelo;
+		int modelo = leermodelo();
+		
+		String preciotexto = leerPreciotexto();
+		String anchotexto = leerAnchotexto();
+		String altotexto = leerAltotexto();
+		String fondotexto = leerFondotexto();
+		String quemadorestexto = leerQuemadorestexto();
 
-		modelo = cboModelo.getSelectedIndex();
-
-		switch (modelo) {
-		case 0:
-			Javaproject20223.precio0 = Double.parseDouble(txtPrecio.getText());
-			Javaproject20223.ancho0 = Double.parseDouble(txtAncho.getText());
-			Javaproject20223.alto0 = Double.parseDouble(txtAlto.getText());
-			Javaproject20223.fondo0 = Double.parseDouble(txtFondo.getText());
-			Javaproject20223.quemadores0 = Integer.parseInt(txtQuemadores.getText());
-			break;
-		case 1:
-			Javaproject20223.precio1 = Double.parseDouble(txtPrecio.getText());
-			Javaproject20223.ancho1 = Double.parseDouble(txtAncho.getText());
-			Javaproject20223.alto1 = Double.parseDouble(txtAlto.getText());
-			Javaproject20223.fondo1 = Double.parseDouble(txtFondo.getText());
-			Javaproject20223.quemadores1 = Integer.parseInt(txtQuemadores.getText());
-		case 2:
-			Javaproject20223.precio2 = Double.parseDouble(txtPrecio.getText());
-			Javaproject20223.ancho2= Double.parseDouble(txtAncho.getText());
-			Javaproject20223.alto2 = Double.parseDouble(txtAlto.getText());
-			Javaproject20223.fondo2 = Double.parseDouble(txtFondo.getText());
-			Javaproject20223.quemadores2 = Integer.parseInt(txtQuemadores.getText());
-			break;
-		case 3:
-			Javaproject20223.precio3 = Double.parseDouble(txtPrecio.getText());
-			Javaproject20223.ancho3 = Double.parseDouble(txtAncho.getText());
-			Javaproject20223.alto3 = Double.parseDouble(txtAlto.getText());
-			Javaproject20223.fondo3 = Double.parseDouble(txtFondo.getText());
-			Javaproject20223.quemadores3 = Integer.parseInt(txtQuemadores.getText());
-			break;
-		default:
-			Javaproject20223.precio4 = Double.parseDouble(txtPrecio.getText());
-			Javaproject20223.ancho4 = Double.parseDouble(txtAncho.getText());
-			Javaproject20223.alto4 = Double.parseDouble(txtAlto.getText());
-			Javaproject20223.fondo4 = Double.parseDouble(txtFondo.getText());
-			Javaproject20223.quemadores4 = Integer.parseInt(txtQuemadores.getText());
-			break;
+		if (preciotexto.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "El precio es requerido","Advertencia",JOptionPane.WARNING_MESSAGE);	
+		    return;
+		}
+		if (anchotexto.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "El ancho es requerido","Advertencia",JOptionPane.WARNING_MESSAGE);	
+		    return;
+		}
+		if (altotexto.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "El alto es requerido","Advertencia",JOptionPane.WARNING_MESSAGE);	
+		    return;
+		}
+		if (fondotexto.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "El fondo es requerido","Advertencia",JOptionPane.WARNING_MESSAGE);	
+		    return;
+		}
+		if (quemadorestexto.isEmpty()) {
+			JOptionPane.showMessageDialog(this, "La cantidad de quemadores es requedida","Advertencia",JOptionPane.WARNING_MESSAGE);	
+		    return;
 		}
 		
-		this.dispose();
-		JOptionPane.showMessageDialog(this, "Datos modificados", null, JOptionPane.INFORMATION_MESSAGE);
+		try {
+			double Precio = leerPrecio();
+			double Ancho = leerAncho();
+			double Alto = leerAlto();
+			double Fondo = leerFondo();
+			int Quemadores = leerQuemadores();
+			
+			if (Precio <= 0) {
+				JOptionPane.showMessageDialog(this, "El precio debe ser mayor a 0", "Error", JOptionPane.WARNING_MESSAGE );
+				return ;
+			}
+			if (Ancho <= 0) {
+				JOptionPane.showMessageDialog(this, "El ancho debe ser mayor a 0", "Error", JOptionPane.WARNING_MESSAGE );
+				return ;
+			}
+			if (Alto <= 0) {
+				JOptionPane.showMessageDialog(this, "El alto debe ser mayor a 0", "Error", JOptionPane.WARNING_MESSAGE );
+				return ;
+			}
+			if (Fondo <= 0) {
+				JOptionPane.showMessageDialog(this, "El fondo debe ser mayor a 0", "Error", JOptionPane.WARNING_MESSAGE );
+				return ;
+			}
+			if (Quemadores <= 0) {
+				JOptionPane.showMessageDialog(this, "La cantidad de quemadores debe ser mayor a 0", "Error", JOptionPane.WARNING_MESSAGE );
+				return ;
+			}
+			
+			switch (modelo) {
+				case 0:
+					Javaproject20223.precio0 = Precio;
+					Javaproject20223.ancho0 =Ancho;
+					Javaproject20223.alto0 =Alto;
+					Javaproject20223.fondo0 =Fondo;
+					Javaproject20223.quemadores0 =Quemadores;
+					break;
+				case 1:
+					Javaproject20223.precio1 =Precio;
+					Javaproject20223.ancho1 =Ancho;
+					Javaproject20223.alto1 =Alto;
+					Javaproject20223.fondo1 =Fondo;
+					Javaproject20223.quemadores1 =Quemadores;
+				case 2:
+					Javaproject20223.precio2 =Precio;
+					Javaproject20223.ancho2 =Ancho;
+					Javaproject20223.alto2 =Alto;
+					Javaproject20223.fondo2 =Fondo;
+					Javaproject20223.quemadores2 =Quemadores;
+					break;
+				case 3:
+					Javaproject20223.precio3 =Precio;
+					Javaproject20223.ancho3 =Ancho;
+					Javaproject20223.alto3 =Alto;
+					Javaproject20223.fondo3 =Fondo;
+					Javaproject20223.quemadores3 =Quemadores;
+					break;
+				default:
+					Javaproject20223.precio4 =Precio;
+					Javaproject20223.ancho4 =Ancho;
+					Javaproject20223.alto4=Alto;
+					Javaproject20223.fondo4 =Fondo;
+					Javaproject20223.quemadores4 =Quemadores;
+					break;
+			}
+			
+			this.dispose();
+			JOptionPane.showMessageDialog(this, "Datos modificados", null, JOptionPane.INFORMATION_MESSAGE);
+		
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, "El campo requerido debe ser un número","Advertencia",JOptionPane.WARNING_MESSAGE);
+		}
 	}
 	
-	void lista(){
+	int leermodelo(){
+		return cboModelo.getSelectedIndex();
+	}
+	
+	String leerPreciotexto(){
+		return txtPrecio.getText();
+	}
+	
+	String leerAnchotexto(){
+		return txtAncho.getText();
+	}
+	
+	String leerAltotexto(){
+		return txtAlto.getText();
+	}
+	
+	String leerFondotexto(){
+		return txtFondo.getText();
+	}
+	
+	String leerQuemadorestexto(){
+		return txtQuemadores.getText();
+	}
+	
+	private void lista(){
 		int modelo;
 
 		modelo = cboModelo.getSelectedIndex();
@@ -232,12 +317,36 @@ public class DialogoModificarCocina extends JDialog implements ActionListener, I
 			itemStateChangedCboModelo(arg0);
 		}
 	}
+	
+	double leerPrecio(){
+		return Double.parseDouble(txtPrecio.getText());
+	}
+	
+	double leerAncho(){
+		return Double.parseDouble(txtAncho.getText());
+	}
+	
+	double leerAlto(){
+		return Double.parseDouble(txtAlto.getText());
+	}
+	
+	double leerFondo(){
+		return Double.parseDouble(txtFondo.getText());
+	}
+	
+	int leerQuemadores(){
+		return Integer.parseInt(txtQuemadores.getText());
+	}
 
-	void modificarModelo(double precio, double ancho, double alto, double fondo, int quemadores) {
+	private void modificarModelo(double precio, double ancho, double alto, double fondo, int quemadores) {
 		txtPrecio.setText(precio + "");
 		txtAncho.setText(ancho + "");
 		txtAlto.setText(alto + "");
 		txtFondo.setText(fondo + "");
 		txtQuemadores.setText(quemadores + "");
+	}
+	
+	protected void actionPerformedCboModelo(ActionEvent e) {
+		lista();
 	}
 }

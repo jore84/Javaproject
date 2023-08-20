@@ -68,6 +68,7 @@ public class DialogoListarCocinas extends JDialog implements ActionListener {
 		contentPanel.add(scrollPane_1);
 		
 		txtS = new JTextArea();
+		txtS.setEditable(false);
 		scrollPane_1.setViewportView(txtS);
 	}
 	
@@ -86,41 +87,24 @@ public class DialogoListarCocinas extends JDialog implements ActionListener {
 	
 	protected void actionPerformedBtnListar(ActionEvent arg0) {
 		txtS.setText("LISTADO DE COCINAS\n\n");
-		txtS.append("Modelo\t\t:" + Javaproject20223.modelo0 + "\n");
-		txtS.append("Precio\t\t:S/" + Javaproject20223.precio0 + "\n");
-		txtS.append("Profundidad\t:" + Javaproject20223.fondo0 + "\n");
-		txtS.append("Ancho\t\t:" + Javaproject20223.ancho0 + "\n");
-		txtS.append("Altura\t\t:" + Javaproject20223.alto0 + "\n");
-		txtS.append("Quemadores\t:" + Javaproject20223.quemadores0 + "\n\n");
-
-		txtS.append("Modelo\t\t:" + Javaproject20223.modelo1 + "\n");
-		txtS.append("Precio\t\t:/S" + Javaproject20223.precio1 + "\n");
-		txtS.append("Profundidad\t:" + Javaproject20223.fondo1 + "\n");
-		txtS.append("Ancho\t\t:" + Javaproject20223.ancho1 + "\n");
-		txtS.append("Altura\t\t:" + Javaproject20223.alto1 + "\n");
-		txtS.append("Quemadores\t:" + Javaproject20223.quemadores1 + "\n\n");
-
-		txtS.append("Modelo\t\t:" + Javaproject20223.modelo2 + "\n");
-		txtS.append("Precio\t\t:/S" + Javaproject20223.precio2 + "\n");
-		txtS.append("Profundidad\t:" + Javaproject20223.fondo2 + "\n");
-		txtS.append("Ancho\t\t:" + Javaproject20223.ancho2 + "\n");
-		txtS.append("Altura\t\t:" + Javaproject20223.alto2 + "\n");
-		txtS.append("Quemadores\t:" + Javaproject20223.quemadores2 + "\n\n");
-
-		txtS.append("Modelo\t\t:" + Javaproject20223.modelo3 + "\n");
-		txtS.append("Precio\t\t:/S" + Javaproject20223.precio3 + "\n");
-		txtS.append("Profundidad\t:" + Javaproject20223.fondo3 + "\n");
-		txtS.append("Ancho\t\t:" + Javaproject20223.ancho3 + "\n");
-		txtS.append("Altura\t\t:" + Javaproject20223.alto3 + "\n");
-		txtS.append("Quemadores\t:" + Javaproject20223.quemadores3 + "\n\n");
-
-		txtS.append("Modelo\t\t:" + Javaproject20223.modelo4 + "\n");
-		txtS.append("Precio\t\t:S/" + Javaproject20223.precio4 + "\n");
-		txtS.append("Profundidad\t:" + Javaproject20223.fondo4 + "\n");
-		txtS.append("Ancho\t\t:" + Javaproject20223.ancho4 + "\n");
-		txtS.append("Altura\t\t:" + Javaproject20223.alto4 + "\n");
-		txtS.append("Quemadores\t:" + Javaproject20223.quemadores4 + "\n");
+		mostrarDatos(Javaproject20223.modelo0, Javaproject20223.precio0, Javaproject20223.ancho0, Javaproject20223.alto0,Javaproject20223.fondo0, Javaproject20223.quemadores0);
+		mostrarDatos(Javaproject20223.modelo1, Javaproject20223.precio1, Javaproject20223.ancho1, Javaproject20223.alto1,Javaproject20223.fondo1, Javaproject20223.quemadores1);
+		mostrarDatos(Javaproject20223.modelo2, Javaproject20223.precio2, Javaproject20223.ancho2, Javaproject20223.alto2,Javaproject20223.fondo2, Javaproject20223.quemadores2);
+		mostrarDatos(Javaproject20223.modelo3, Javaproject20223.precio3, Javaproject20223.ancho3, Javaproject20223.alto3,Javaproject20223.fondo3, Javaproject20223.quemadores3);
+		mostrarDatos(Javaproject20223.modelo4, Javaproject20223.precio4, Javaproject20223.ancho4, Javaproject20223.alto4,Javaproject20223.fondo4, Javaproject20223.quemadores4);
 	}
 	
+	private void imprimir(String cadena){
+		txtS.append("\n"+ cadena);
+	}
 	
+	private void mostrarDatos(String modelo ,double precio, double ancho, double alto, double fondo, int quemadores) {
+		imprimir("Modelo\t\t:" + modelo);
+		imprimir("Precio\t\t:" + precio);
+		imprimir("Ancho\t\t:" + ancho);
+		imprimir("alto\t\t:" + alto);
+		imprimir("fondo\t\t:" + fondo);
+		imprimir("Quemadores\t:" + quemadores);
+		txtS.append("\n");
+	}
 }

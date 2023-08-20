@@ -1,0 +1,147 @@
+package gui;
+
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.text.DecimalFormat;
+import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
+
+public class DialogoGenerarReportes extends JDialog implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private final JPanel contentPanel = new JPanel();
+	private JButton btnCerrar;
+	private JTextArea txtS;
+	private JComboBox<Object> cboTipoReporte;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		try {
+			DialogoGenerarReportes dialog = new DialogoGenerarReportes();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	int modelo;
+	
+	//variables que guardan los valores de las variables
+	String 	modelo0 = Javaproject20223.modelo0, 
+			modelo1 = Javaproject20223.modelo1, 
+			modelo2 = Javaproject20223.modelo2, 
+			modelo3 = Javaproject20223.modelo3, 
+			modelo4 = Javaproject20223.modelo4;
+		
+	int 	cantVentas0 = Javaproject20223.contadorVenta0, 
+			cantVentas1 = Javaproject20223.contadorVenta1,
+			cantVentas2 = Javaproject20223.contadorVenta2, 
+			cantVentas3 = Javaproject20223.contadorVenta3,
+			cantVentas4 = Javaproject20223.contadorVenta4;
+		
+	int 	unidVendidas0 = Javaproject20223.cantUniVendidas0, 
+			unidVendidas1 = Javaproject20223.cantUniVendidas1, 
+			unidVendidas2 = Javaproject20223.cantUniVendidas2, 
+			unidVendidas3 = Javaproject20223.cantUniVendidas3, 
+			unidVendidas4 = Javaproject20223.cantUniVendidas4;
+		
+	double 	impAcum0 = Javaproject20223.importeAcumulado0, 
+			impAcum1 = Javaproject20223.importeAcumulado1, 
+			impAcum2 = Javaproject20223.importeAcumulado2, 
+			impAcum3 = Javaproject20223.importeAcumulado3, 
+			impAcum4 = Javaproject20223.importeAcumulado4;
+		
+	double 	porCuota0 = Javaproject20223.porcentajeCuota0, 
+			porCuota1 = Javaproject20223.porcentajeCuota1, 
+			porCuota2 = Javaproject20223.porcentajeCuota2, 
+			porCuota3 = Javaproject20223.porcentajeCuota3, 
+			porCuota4 = Javaproject20223.porcentajeCuota4;
+		
+	int 	cantOptima = Javaproject20223.cantidadOptima;
+		
+	double 	precio0 = Javaproject20223.precio0,
+			precio1 = Javaproject20223.precio1, 
+			precio2 = Javaproject20223.precio2, 
+			precio3 = Javaproject20223.precio3, 
+			precio4 = Javaproject20223.precio4;
+		
+	double 	ancho0 = Javaproject20223.ancho0, 
+			ancho1 = Javaproject20223.ancho1, 
+			ancho2 = Javaproject20223.ancho2, 
+			ancho3 = Javaproject20223.ancho3, 
+			ancho4 = Javaproject20223.ancho4;
+		
+		//Calculando variables globales precioPromedio y anchoPromedio
+		double precioPromedio = (precio0 + precio1 + precio2 + precio3 + precio4)/5;
+		double anchoPromedio = (ancho0 + ancho1 + ancho2 + ancho3 + ancho4)/5;
+		
+		//Creando formato1 tipo DecimalFormat
+		DecimalFormat formato1 = new DecimalFormat("0.00");
+
+	/**
+	 * Create the dialog.
+	 */
+	public DialogoGenerarReportes() {
+		setModal(true);
+		setResizable(false);
+		setTitle("Generar Reportes");
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		contentPanel.setLayout(null);
+		
+		JLabel lblReporte = new JLabel("Tipo de reporte");
+		lblReporte.setBounds(10, 24, 89, 14);
+		contentPanel.add(lblReporte);
+		
+		cboTipoReporte = new JComboBox<Object>();
+		cboTipoReporte.setModel(new DefaultComboBoxModel<Object>(new String[] {"Ventas por modelo", "Ventas en relaci\u00F3n a la venta \u00F3ptima", "Precios en relaci\u00F3n al precio promedio", "Promedios, menores y mayores"}));
+		cboTipoReporte.setBounds(97, 21, 206, 20);
+		contentPanel.add(cboTipoReporte);
+
+		btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(this);
+		btnCerrar.setBounds(345, 20, 89, 23);
+		contentPanel.add(btnCerrar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 50, 424, 210);
+		contentPanel.add(scrollPane);
+			
+		txtS = new JTextArea();
+		scrollPane.setViewportView(txtS);
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
+		}
+	}
+	
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
+		dispose();
+	}
+	
+	private void itemStateChangedCboTipoReporte(ItemEvent e) {
+		Object cboTipoReporte = null;
+		if (e.getSource() == cboTipoReporte) {
+			itemStateChangedCboTipoReporte(e);
+		}
+	}
+}

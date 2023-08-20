@@ -104,6 +104,35 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 		public static int cantidadOptima = 30;
 		// Cuota diaria
 		public static double cuotaDiaria = 75000;
+		
+		public static int ventasTotales;
+		public static double impTotalAcumulado;
+		public static double porcCuotaTotal;
+		
+		public static int contVenta0;
+		public static int contVenta1;
+		public static int contVenta2;
+		public static int contVenta3;
+		public static int contVenta4;
+		
+		public static int uniVendidas0;
+		public static int uniVendidas1;
+		public static int uniVendidas2;
+		public static int uniVendidas3;
+		public static int uniVendidas4;
+		
+		public static double impAcumulado0;
+		public static double impAcumulado1;
+		public static double impAcumulado2;
+		public static double impAcumulado3;
+		public static double impAcumulado4;
+		
+		public static double porcCuota0;
+		public static double porcCuota1;
+		public static double porcCuota2;
+		public static double porcCuota3;
+		public static double porcCuota4;
+		
 
 	/**
 	 * Create the frame.

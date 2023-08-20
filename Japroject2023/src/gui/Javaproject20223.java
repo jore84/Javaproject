@@ -165,19 +165,12 @@ public class Javaproject20223 extends JFrame implements ActionListener {
 		if (arg0.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(arg0);
 		}
-		if(arg0.getSource() == mntmConfigurarCantidadOptima){
-			actionPerformedMntmConfigurarCantidadOptima(arg0);
-	}
+	
 		
 	}
 	
 		
-	protected void actionPerformedMntmConfigurarCantidadOptima(ActionEvent arg0) {
-		DialogoConfiguracionCantidadOptima dc;
-		dc = new DialogoConfiguracionCantidadOptima();
-		dc.setLocationRelativeTo(this);
-		dc.setVisible(true);
-	}
+	
 	protected void actionPerformedMntmSalir(ActionEvent arg0) {
 		System.exit(0);
 	}

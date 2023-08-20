@@ -89,30 +89,24 @@ public class DialogoListarCocinas extends JDialog implements ActionListener {
 
 	protected void actionPerformedBtnListar(ActionEvent arg0) {
 		txtS.setText("LISTADO DE COCINAS\n\n");
-		
 		mostrarDatos(Tienda1.modelo0, Tienda1.precio0, Tienda1.ancho0, Tienda1.alto0,Tienda1.fondo0, Tienda1.quemadores0);
-		
 		mostrarDatos(Tienda1.modelo1, Tienda1.precio1, Tienda1.ancho1, Tienda1.alto1,Tienda1.fondo1, Tienda1.quemadores1);
-		
 		mostrarDatos(Tienda1.modelo2, Tienda1.precio2, Tienda1.ancho2, Tienda1.alto2,Tienda1.fondo2, Tienda1.quemadores2);
-		
 		mostrarDatos(Tienda1.modelo3, Tienda1.precio3, Tienda1.ancho3, Tienda1.alto3,Tienda1.fondo3, Tienda1.quemadores3);
-		
 		mostrarDatos(Tienda1.modelo4, Tienda1.precio4, Tienda1.ancho4, Tienda1.alto4,Tienda1.fondo4, Tienda1.quemadores4);
 	}
 	private void imprimir(String cadena){
-		txtS.append("\n"+ cadena);
+		txtS.append("n"+ cadena);
 		
 	}
 		
 	
 	 private void mostrarDatos(String modelo ,double precio, double ancho, double alto, double fondo, int quemadores) {
-		imprimir("Modelo\t\t:" + modelo);
-		imprimir("Precio\t\t:" + precio);
-		imprimir("Ancho\t\t:" + ancho);
-		imprimir("alto\t\t:" + alto);
-		imprimir("fondo\t\t:" + fondo);
-		imprimir("Quemadores\t:" + quemadores);
+		imprimir("\n Modelo\t\t:" + modelo);
+		imprimir("Precio\t\t:" + modelo);
+		imprimir("Profundidad\t\t:" + modelo);
+		imprimir("Ancho\t\t:" + modelo);
+		imprimir("Quemadores\t\t:" + modelo);
 		
 	}
 }
